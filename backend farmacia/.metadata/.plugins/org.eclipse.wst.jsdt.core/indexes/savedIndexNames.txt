@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+/Users/victorbonninpalou/Documents/eclipse/treball/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+1169571663.index
+2159511826.index
+2991611800.index
+2159746961.index
+2280605014.index
+2915126852.index
+2266561958.index

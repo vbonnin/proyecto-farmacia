@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="alta.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Alta</title>
+</head>
+<body onload="getPatients(), getMedicines()">
+    <section class="alta">
+        <h4>Alta</h4>
+        <div>
+            <label for="chipId"></label>
+            <input class="contenido" type="text" id="chipId" placeholder="Introduzca el ID del chip">
+        </div>
+        <div>
+            <label for="patientSelect"></label>
+            <select class="contenido" id="patientSelect">
+                <option selected disabled>Pacientes</option>
+            </select>
+        </div>
+        <div>
+            <label for="medicineSelect"></label>
+            <select class="contenido" id="medicineSelect">
+                <option selected disabled>Medicamentos</option>
+            </select>
+        </div>
+        <div>
+            <label for="dateLimit"></label>
+            <input class="contenido" type="date" id="dateLimit">
+        </div>
+        <button class="boton1" onclick="enviar()">Enviar</button>
+        <button class="boton2 " onclick="volverGestion()">Volver a Gestión</button>
+        <div id="resultat"></div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,51 @@
+
+
+import java.io.IOException;
+import java.sql.SQLException;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class Release
+ */
+@WebServlet("/Release")
+public class Release extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+    /**
+     * Default constructor. 
+     */
+    public Release() {
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String mail = request.getParameter("mail");
+        String session = request.getParameter("session");
+        String chipId = request.getParameter("chipId");
+        String patientSelect = request.getParameter("mailP");
+        String id_medicine = request.getParameter("id_medicine");
+        String dateLimit = request.getParameter("dateLimit");
+
+        Doctor doctor = new Doctor();
+        boolean isLogged = doctor.isLogged(mail, session);
+
+        if (isLogged) {
+            doctor.load(mail);
+            String query = String.format("INSERT INTO xip (id, doctor_mail, id_medicine, id_patient,date) VALUES ('%s', '%s', '%s', '%s', '%s');", chipId, mail, id_medicine, patientSelect, dateLimit);
+            BBDD bd = new BBDD();
+            bd.conectar();
+            bd.updateDoctor(query);
+        } else {
+            System.out.println("El usuario no está loggeado");
+        }
+    }
+
+}

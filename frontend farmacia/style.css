@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(./img/fondo.jpeg);
+}
+/* Clase Login */
+.registro {
+    width: 25em;
+    background: #00CC33;
+    padding: 1.875em;
+    margin: auto;
+    margin-top: 6.25em;
+    border-radius: 0.55em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgba(255, 255, 255, 0.836);
+    text-align: center;
+    box-shadow: 0.43em 0.81em 2.31em #000;
+}
+
+.registro h4 {
+    font-size: 1.56em;
+    margin-bottom: 1.25em;
+    
+}
+
+.contenido {
+    width: 90%;
+    padding: 0.5em;
+    background: #00FF99;
+    border-radius: 0.25em;
+    margin-bottom: 0.7em;
+    border: 0.12em solid #009900;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1em;
+    color: grey;
+}
+
+.boton {
+    width: 60%;
+    background: #009900;
+    border: none;
+    padding: 0.6em;
+    color: white;
+    font-size: 1em;
+    transition: transform 0.1s ease;
+}
+
+.boton:active {
+    transform: scale(0.95);
+}
+/* Clase gestion */
+.gestion {
+    width: 25em;
+    background: #00CC33;
+    padding: 1.875em;
+    margin: auto;
+    margin-top: 6.25em;
+    border-radius: 0.55em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgba(255, 255, 255, 0.836);
+    text-align: center;
+    box-shadow: 0.43em 0.81em 2.31em #000;
+}
+
+.gestion h4 {
+    font-size: 1.56em;
+    margin-bottom: 1.25em;
+}
+
+/* Clase Alta */
+.alta {
+    width: 25em;
+    background: #00CC33;
+    padding: 1.875em;
+    margin: auto;
+    margin-top: 6.25em;
+    border-radius: 0.55em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgba(255, 255, 255, 0.836);
+    text-align: center;
+    box-shadow: 0.43em 0.81em 2.31em #000;
+}
+
+.alta h4 {
+    font-size: 1.56em;
+    margin-bottom: 1.25em;
+}
+
+.boton1 {
+    width: 60%;
+    background: #009900;
+    border: none;
+    padding: 0.6em;
+    color: white;
+    font-size: 1em;
+    margin-bottom: 0.5em;
+    transition: transform 0.1s ease; 
+}
+
+.boton1:active {
+    transform: scale(0.95)
+}
+
+.boton2 {
+    width: 60%;
+    background: #009900;
+    border: none;
+    padding: 0.6em;
+    color: white;
+    font-size: 1em;
+}
+
+.boton2:active {
+    transform: scale(0.95)
+}

@@ -1,0 +1,54 @@
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.*;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+public class Patient extends Person {
+	
+	public Patient() {
+		super();
+	}
+	
+	public Patient (String name, String mail) {
+		super(name, mail);
+	}
+
+	@Override
+	public void load(String id) {
+		 String mail = request.getParameter("mail");
+	        String session = request.getParameter("session");
+	        BBDD bd = new BBDD();
+	        bd.conectar();
+	        ResultSet rs = bd.loadSelect("SELECT * FROM patient;");
+	        ArrayList<Patient> patients = new ArrayList<>();
+	        try {
+	            while (rs.next()) {
+	                Patient patient = new Patient();
+	                patient.load(rs.getString("mail"));
+	                patients.add(patient);
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+
+	        JSONArray jsonArray = new JSONArray();
+	        for (Patient patient : patients) {
+	            JSONObject jsonPatient = new JSONObject();
+	            jsonPatient.put("name", patient.getName());
+	            jsonPatient.put("mail", patient.getMail());
+	            jsonArray.put(jsonPatient);
+	        }
+
+	        response.setContentType("application/json");
+	        response.setCharacterEncoding("UTF-8");
+	        response.getWriter().write(jsonArray.toString());
+	    }
+
+}

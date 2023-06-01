@@ -1,0 +1,37 @@
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+import org.json.JSONArray;
+import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+@WebServlet("/ServePatients")
+public class ServePatients extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    public ServePatients() {
+        super();
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String mail = request.getParameter("mail");
+        String session = request.getParameter("session");
+
+        Doctor doctor = new Doctor();
+        boolean isLogged = doctor.isLogged(mail, session);
+
+        if (isLogged) {
+            ArrayList<Patient> patients = doctor.getPatient(); // Asumiendo que tienes un método que devuelve una lista de pacientes
+            JSONArray jsonArray = new JSONArray(patients);
+            response.setContentType("application/json");
+            response.getWriter().write(jsonArray.toString());
+        } else {
+            System.out.println("El usuario no está loggeado");
+        }
+    }
+}
