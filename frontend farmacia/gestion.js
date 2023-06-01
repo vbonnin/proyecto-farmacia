@@ -3,11 +3,11 @@ function logOut() {
     sessionStorage.removeItem('session');
     document.getElementById("resultat").innerHTML="Logged Out";
     // redirect to login page
-    window.location.href = 'login.html';
+    window.location.href = './login.html';
 }
 
 function alta() {
-    window.location.href = "/alta.html";
+    window.location.href = "./alta.html";
 }
 
 function getTable() {

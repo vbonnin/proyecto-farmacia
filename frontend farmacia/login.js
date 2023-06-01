@@ -44,7 +44,7 @@ function enviar() {
                 window.sessionStorage.setItem("session",session);
                 document.getElementById("resultat").innerHTML="Loggin Correcta";
 
-                window.location.href = "/gestio.html"
+                window.location.href = "./gestio.html"
             } else {
                 document.getElementById("resultat").innerHTML="Loggin Incorrecta";
             }

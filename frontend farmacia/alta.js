@@ -72,6 +72,6 @@ function enviar() {
 }
 // Función para digirnos a la página de gestión
 function volverGestion() {
-    window.location.href = "/gestio.html";
+    window.location.href = "./gestio.html";
 }
 
